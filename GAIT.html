@@ -1,0 +1,95 @@
+<html>
+<meta http-equiv="refresh" content="7">
+
+<head>
+<title>GAIT MONITORING SYSTEM</title>
+<style>
+body {
+  background-image: url('https://www.philips.co.in/c-dam/b2bhc/master/feature-details/pm-deepdive/pm-group-page/pm-video-thumb.JPG');
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+
+<script>
+
+    $(function() {
+
+
+   var people = [];
+
+   $.getJSON('  https://api.thingspeak.com/channels/992560/feeds.json?results=1', function(data) {
+       $.each(data.feeds, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.created_at + "</td>" +"<td>" + f.entry_id + "</td>" + "<td>" + f.field8 + "</td>"+"</tr>"
+
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+
+
+
+</head>
+<body style="background-color:White;">
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<center style="color:red">
+<h1>GAIT  MONITORING SYSTEM</h1>
+
+</center><br><br><br><br><br><br>
+
+<center>
+
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/690526/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=5&type=line"></iframe>
+
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/690526/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/690526/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=5&type=line"></iframe>
+
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/690526/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/690526/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+
+
+</center>
+
+
+<br>
+<br>
+<br>
+<br>
+<center>
+<table id= "userdata" border="2">
+  <thead>
+            <th>Date</th>
+            <th>S.no</th>
+            <th>RESULT</th>
+
+
+
+           
+             </thead>
+    <tbody>
+    </tbody>
+   </table>
+
+  
+
+<center>
+
+
+
+<iframe id='track' frameborder="0" scrolling="no" width="1" height="1">
+</script>
+
+</center>
+
+</body>
+</html>
